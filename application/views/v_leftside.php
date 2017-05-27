@@ -25,25 +25,25 @@
 										<div id="action" class="collapse ">
 											<ul class="nav">
 												<li>
-												<a href="<?php echo base_url()."index.php/SalesAdmin/fuform"; ?>" data-toggle="collapse" class="collapsed"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Follow Up Form</a>
+												<a href="<?php echo base_url()."index.php/SalesAdmin/fuform"; ?>"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Follow Up Form</a>
 												</li>
 												<li>
-												<a href="<?php echo base_url()."index.php/SalesAdmin/passign"; ?>" data-toggle="collapse" class="collapsed"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Partner Assignmet</a>
+												<a href="<?php echo base_url()."index.php/SalesAdmin/passign"; ?>"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Partner Assignmet</a>
 												</li>
 												<li>
-												<a href="<?php echo base_url()."index.php/SalesAdmin/present"; ?>" data-toggle="collapse" class="collapsed"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Presentation</a>
+												<a href="<?php echo base_url()."index.php/SalesAdmin/present"; ?>"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Presentation</a>
 												</li>
 												<li>
-												<a href="<?php echo base_url()."index.php/SalesAdmin/poc"; ?>" data-toggle="collapse" class="collapsed"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;POC</a>
+												<a href="<?php echo base_url()."index.php/SalesAdmin/poc"; ?>"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;POC</a>
 												</li>
 												<li>
-												<a href="<?php echo base_url()."index.php/SalesAdmin/poption"; ?>" data-toggle="collapse" class="collapsed"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Product Option</a>
+												<a href="<?php echo base_url()."index.php/SalesAdmin/poption"; ?>"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Product Option</a>
 												</li>
 												<li>
-												<a href="<?php echo base_url()."index.php/SalesAdmin/aprogress"; ?>" data-toggle="collapse" class="collapsed"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Adjustment Progress</a>
+												<a href="<?php echo base_url()."index.php/SalesAdmin/aprogress"; ?>"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Adjustment Progress</a>
 												</li>
 												<li>
-												<a href="<?php echo base_url()."index.php/SalesAdmin/dprospect"; ?>" data-toggle="collapse" class="collapsed"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Drop Prospect</a>
+												<a href="<?php echo base_url()."index.php/SalesAdmin/dprospect"; ?>"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Drop Prospect</a>
 												</li>
 											</ul>
 										</div>
@@ -73,13 +73,13 @@
 										<div id="quotation" class="collapse ">
 											<ul class="nav">
 												<li>
-												<a href="<?php echo base_url()."index.php/SalesAdmin/cquotation"; ?>" data-toggle="collapse" class="collapsed"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Create Quotation</a>
+												<a href="<?php echo base_url()."index.php/SalesAdmin/cquotation"; ?>"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Create Quotation</a>
 												</li>
 												<li>
-												<a href="<?php echo base_url()."index.php/SalesAdmin/qsummary"; ?>" data-toggle="collapse" class="collapsed"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Quotation Summary</a>
+												<a href="<?php echo base_url()."index.php/SalesAdmin/qsummary"; ?>"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Quotation Summary</a>
 												</li>
 												<li>
-												<a href="<?php echo base_url()."index.php/SalesAdmin/squotation"; ?>" data-toggle="collapse" class="collapsed"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Send Quotation</a>
+												<a href="<?php echo base_url()."index.php/SalesAdmin/squotation"; ?>"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Send Quotation</a>
 												</li>
 											</ul>
 										</div>
@@ -88,13 +88,13 @@
 										<div id="proposal" class="collapse ">
 											<ul class="nav">
 												<li>
-												<a href="<?php echo base_url()."index.php/SalesAdmin/cproposal"; ?>" data-toggle="collapse" class="collapsed"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Create Proposal</a>
+												<a href="<?php echo base_url()."index.php/SalesAdmin/cproposal"; ?>"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Create Proposal</a>
 												</li>
 												<li>
-												<a href="<?php echo base_url()."index.php/SalesAdmin/psummary"; ?>" data-toggle="collapse" class="collapsed"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Proposal Summary</a>
+												<a href="<?php echo base_url()."index.php/SalesAdmin/psummary"; ?>"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Proposal Summary</a>
 												</li>
 												<li>
-												<a href="<?php echo base_url()."index.php/SalesAdmin/sproposal"; ?>" data-toggle="collapse" class="collapsed"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Send Proposal</a>
+												<a href="<?php echo base_url()."index.php/SalesAdmin/sproposal"; ?>"><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Send Proposal</a>
 												</li>
 												<li>
 												</li>
