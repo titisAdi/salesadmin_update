@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class ConvertPDF extends CI_Controller {
 
 	public function index($get){
+		//ini comment
 		$this->load->library('MYPDF');
 		$this->mypdf->footer(); 
 		$idpro = substr($get,0,10);
