@@ -17,6 +17,7 @@
 	<link href="<?php echo base_url()."assets/vendor/";?>css/normalize.css ?>" rel="stylesheet">
 	<link href="<?php echo base_url()."assets/vendor/";?>datatables/dataTables.bootstrap.css ?>" rel="stylesheet">
 	<link href="<?php echo base_url()."assets/vendor/";?>css/jquery.steps.css ?>" rel="stylesheet">
+	<link href="<?php echo base_url()."assets/vendor/";?>dist/sweetalert.css ?>" rel="stylesheet">
 	<link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url()."assets/img/";?>building.png ?>">
 
 </head>
@@ -67,6 +68,8 @@
 		<script src="<?php echo base_url()."assets/vendor/";?>jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
 		<script src="<?php echo base_url()."assets/vendor/";?>chartist/js/chartist.min.js"></script>
 		<script src="<?php echo base_url()."assets/vendor/";?>ckeditor/ckeditor.js"></script>
+		<script src="<?php echo base_url()."assets/vendor/";?>dist/sweetalert-dev.js"></script>
+		<script src="<?php echo base_url()."assets/vendor/";?>dist/sweetalert.min.js"></script>
 		<script src="<?php echo base_url()."assets/scripts/";?>klorofil-common.js"></script>
 		<script src="<?php echo base_url()."assets/vendor/";?>datatables/dataTables.bootstrap.js"></script>
 		

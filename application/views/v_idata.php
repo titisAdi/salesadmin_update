@@ -16,8 +16,8 @@
 	                    </p>
 				</div>
 				<div class="panel-body">
-					<div class="box-body table-responsive">
 					<div id="notifications"><?php echo $this->session->flashdata('msg'); ?></div>
+					<div class="box-body table-responsive">
                   	<table id="example1" class="table table-bordered table-striped">
 						<thead>
 							<tr>
@@ -50,7 +50,7 @@
                                     <td><?php echo $bInq['message']?></td>
                                     <td><?php echo $bInq['idate']?></td>
                                     <td><i class="fa fa-flag-checkered" aria-hidden="true"></i>   
-                                    ||   <a href="javascript:;" data-id="<? echo $bInq['inq_no'] ?>" onclick="return konfirmasi()" data-toggle="modal" data-target="#modal-konfirmasi"><i class="fa fa-trash" aria-hidden="true" title="Remove"></i> </td>
+                                    ||   <a href="#" data-url="<?php echo base_url()."index.php/SalesAdmin/remove/".$bInq['inq_no']; ?>" onclick="return konfirmasi()" data-toggle="modal" data-target="#modal-konfirmasi"  class="confirm_delete"><i class="fa fa-trash" aria-hidden="true" title="Remove"></i> </td>
                             <?php }?>
                         </tbody>
 					</table>
@@ -88,14 +88,28 @@
 		          "bAutoWidth": false
 		        });
 		    });
+		    
 		    $(document).ready(function(){
-				$('#modal-konfirmasi').on('show.bs.modal', function (event) {
-				var div = $(event.relatedTarget)
-				var id = div.data('id')
-				var modal = $(this)
-				modal.find('#hapus-true-data').attr("href","<?php echo base_url()."index.php/SalesAdmin/remove/".$bInq['inq_no']; ?>");
-				})
+				$('.confirm_delete').on('click', function(){
+		
+				var delete_url = $(this).attr('data-url');
+
+				swal({
+					title: " Are you sure to Delete this Data ?",
+					type: "warning",
+					showCancelButton: true,
+					confirmButtonColor: "#DD6B55",
+					confirmButtonText: "Yes",
+					cancelButtonText: "Cancel",
+					closeOnConfirm: false			
+				}, function(){
+					window.location.href = delete_url;
+				});
+
+				return false;
+				});
 			});
-			 $('#notifications').slideDown('slow').delay(3000).slideUp('slow');
+			$('#notifications').slideDown('slow').delay(3000).slideUp('slow');
+
 		</script>
 		    

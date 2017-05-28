@@ -43,7 +43,7 @@ class SalesAdmin extends CI_Controller {
 			$this->session->set_flashdata('msg', 
             	'<div class="alert alert-info alert-dismissible" role="alert">
             		<i class="fa fa-info-circle"></i>
-            			Data has been removed 
+            			Data has been removed
                 </div>'); 
 			redirect('SalesAdmin/idata');
 		}else{
