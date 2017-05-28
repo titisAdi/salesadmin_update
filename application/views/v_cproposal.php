@@ -22,6 +22,7 @@
 					
 					<div class="panel-body">
 					<form name="proposal" action="<?php echo base_url()."index.php/SalesAdmin/cproposal_process"; ?>" method="post">
+						<div id="notifications"><?php echo $this->session->flashdata('msg'); ?></div>
 						<div class="form-group">
                             <label>Select Customer : </label>
                             <select class="form-control" name="idlead">
@@ -410,8 +411,9 @@
 			});
 			$('#cwdsubTotal').val( cwdsubTotal.toFixed(2) );
 		}
-		 $(function () {
+		$(function () {
         CKEDITOR.replace('editor1');
         $(".textarea").wysihtml5();
       });
+		 $('#notifications').slideDown('slow').delay(3000).slideUp('slow');
 	</script>

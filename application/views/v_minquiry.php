@@ -17,6 +17,7 @@
 				</div>
 				<div class="panel-body">
 				<form role="form" method="post" action="<?php echo base_url()."index.php/SalesAdmin/manualinq/"?>">
+                    <div id="notifications"><?php echo $this->session->flashdata('msg'); ?></div>
                             <div class="form-group">
                                 <label>First Name</label>
                                 <input class="form-control" name="fname">
@@ -91,3 +92,6 @@
 
 				</div>
 			</div>
+<script>   
+    $('#notifications').slideDown('slow').delay(3000).slideUp('slow');
+</script>

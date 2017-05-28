@@ -17,6 +17,7 @@
 				</div>
 				<div class="panel-body">
 					 <form role="form" action="<?php echo base_url()."index.php/SalesAdmin/cquotation_process/"?>" method="post">
+					 	<div id="notifications"><?php echo $this->session->flashdata('msg'); ?></div>
 
                              <div class="form-group" name="lead">
                                     <label>Select Customer : </label>
@@ -172,4 +173,9 @@
 			$('.case:checkbox:checked').parents("tr").remove();
 			$('#check_all').prop("checked", false); 
 		});
+		$(function () {
+        CKEDITOR.replace('editor1');
+        $(".textarea").wysihtml5();
+      });
+		 $('#notifications').slideDown('slow').delay(3000).slideUp('slow');
     </script>

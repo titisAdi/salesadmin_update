@@ -17,6 +17,7 @@
 				</div>
 				<div class="panel-body">
 				 <form role="form" method="post" action="<?php echo base_url()."index.php/SalesAdmin/manualLead/"?>">
+            <div id="notifications"><?php echo $this->session->flashdata('msg'); ?></div>
 							<div class="form-group">
 								<label>Follow up date : </label>
 								<input type="date" class="form-control" id="datepick" name="fu_date" required="required">
@@ -107,3 +108,6 @@
                         </form>
 				</div>
 			</div>
+<script>   
+    $('#notifications').slideDown('slow').delay(3000).slideUp('slow');
+</script>

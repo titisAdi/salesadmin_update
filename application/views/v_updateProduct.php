@@ -20,6 +20,7 @@
 				</div>
 				<div class="panel-body">
 					 <form role="form" method="post" action="<?php echo base_url()."index.php/SalesAdmin/leadChangeUpdate/"?>">
+					 	
 	                    <div class="form-group">
 	                      <label for="recipient-name" class="form-control-label">ID Lead</label>
 	                      <input type="text" class="form-control" name="id_lead" id="id_lead" value="<?php echo $id_lead ?>"  readonly>

@@ -17,6 +17,7 @@
 				</div>
 				<div class="panel-body">
 					<form role="form" method="post" action="<?php echo base_url()."index.php/SalesAdmin/pro_presentation/"?>">
+              <div id="notifications"><?php echo $this->session->flashdata('msg'); ?></div>
 						          <div class="form-group" name="lead">
                       <label>Lead ID / Customer : </label>
                       <select class="form-control" name="lead">
@@ -108,4 +109,6 @@
         var chkbox=row.cells[0].childNodes[0];
         if(null!=chkbox&&true==chkbox.checked){if(rowCount<=1){alert("Cannot delete all the rows.");break;}
         table.deleteRow(i);rowCount--;i--;}}}catch(e){alert(e);}}
+
+        $('#notifications').slideDown('slow').delay(3000).slideUp('slow');
     </script>

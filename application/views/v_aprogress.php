@@ -16,6 +16,7 @@
                         </p>
 				</div>
 				<div class="panel-body">
+					<div id="notifications"><?php echo $this->session->flashdata('msg'); ?></div>
 					  <table id="example1" class="table table-striped table-bordered" cellspacing="0" width="100%">
 				        <thead>
 				            <tr>
@@ -45,5 +46,6 @@
 		    "bInfo": true,
 		    "bAutoWidth": false
 		});
-	});
+	}); 
+    $('#notifications').slideDown('slow').delay(3000).slideUp('slow');
 </script>

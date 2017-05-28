@@ -136,7 +136,7 @@
 							</br></br></br></br>
 							<div class="form-group">
                                 <label>Remark</label>
-                                <textarea class="form-control" rows="10" cols="80" value="<?php echo $remark?>">
+                                <textarea class="form-control" rows="10" cols="80" value="<?php echo $remark?>" name="editor1">
 										Term of Payment License JPayroll adalah DP 50% dan sisanya setelah aktivasi produk.
 										Pembayaran implementasi software : 100% dari nilai jumlah workdays yang digunakan
 								</textarea>
@@ -167,4 +167,8 @@
 			$('.case:checkbox:checked').parents("tr").remove();
 			$('#check_all').prop("checked", false); 
 		});
+		$(function () {
+        CKEDITOR.replace('editor1');
+        $(".textarea").wysihtml5();
+      });
     </script>

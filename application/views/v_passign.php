@@ -17,6 +17,7 @@
 				</div>
 				<div class="panel-body">
 					<form role="form" method="post" action="<?php echo base_url()."index.php/SalesAdmin/passign_process/"?>">
+						<div id="notifications"><?php echo $this->session->flashdata('msg'); ?></div>
 							<div class="form-group" name="lead">
 									<label>Lead ID / Customer : </label>
 									<select class="form-control" name="lead">
@@ -41,3 +42,6 @@
 							<button type="submit" class="btn btn-default">Submit</button>
 						</form>
 				</div>
+<script>   
+    $('#notifications').slideDown('slow').delay(3000).slideUp('slow');
+</script>

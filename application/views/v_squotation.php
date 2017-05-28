@@ -17,7 +17,7 @@
 				</div>
 				<div class="panel-body">
 					<form role="form" action="<?php echo base_url()."index.php/SalesAdmin/qSendProcess/"?>" method="post">
-												
+						<div id="notifications"><?php echo $this->session->flashdata('msg'); ?></div>						
                             <div class="form-group">
                                     <label>Select Customer : </label>
                                     <select class="form-control" name="id">
@@ -39,3 +39,6 @@
                             <button type="submit" class="btn btn-default">Submit</button>
 
                     </form>
+<script>   
+    $('#notifications').slideDown('slow').delay(3000).slideUp('slow');
+</script>

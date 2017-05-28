@@ -63,8 +63,24 @@ class SalesAdmin extends CI_Controller {
 			'comment'=>$remark,
 			'via'=>$via,
 			'fu_by'=>$by
-			);
+		);
 		$data = $this->salesModel->addInq('tfollowup',$tambah_inq);
+		if($data >=1){
+			$this->session->set_flashdata('msg', 
+            	'<div class="alert alert-info alert-dismissible" role="alert">
+            		<i class="fa fa-info-circle"></i>
+            			Data has been recorded 
+                </div>'); 
+			redirect('SalesAdmin/aidata');
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Data input failed
+                </div>'); 
+			redirect('SalesAdmin/aidata');
+		}
+		
 	}
 	public function icdata(){
 		$this->load->view('v_navbar');
@@ -123,6 +139,21 @@ class SalesAdmin extends CI_Controller {
 			'itime'=>$waktu
 			);
 		$res = $this->salesModel->addInq('tinq',$tambah_manualInq);
+		if($res >=1){
+			$this->session->set_flashdata('msg', 
+            	'<div class="alert alert-info alert-dismissible" role="alert">
+            		<i class="fa fa-info-circle"></i>
+            			Data has been recorded 
+                </div>'); 
+			redirect('SalesAdmin/minquiry');
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Data input failed
+                </div>'); 
+			redirect('SalesAdmin/minquiry');
+		}
 	}
 	public function mlead(){
 		$this->load->view('v_navbar');
@@ -226,6 +257,21 @@ class SalesAdmin extends CI_Controller {
 		$res2 = $this->salesModel->addInq('tleadcontact',$tambah_leadContact);
 		$res3 = $this->salesModel->addInq('progress',$tambah_progress);
 		$res4 = $this->salesModel->addInq('tfollowup',$tambah_followup);
+		if($res >=1 || $res1 >=1 || $res2 >=1 || $res3 >=1 || $res4 >=1){
+			$this->session->set_flashdata('msg', 
+            	'<div class="alert alert-info alert-dismissible" role="alert">
+            		<i class="fa fa-info-circle"></i>
+            			Data has been recorded 
+                </div>'); 
+			redirect('SalesAdmin/mlead');
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Data input failed
+                </div>'); 
+			redirect('SalesAdmin/mlead');
+		}
 	}
 	public function fuform(){
 		$data = $this->salesModel->showCustomer();
@@ -256,6 +302,21 @@ class SalesAdmin extends CI_Controller {
 		);
 
 		$data = $this->salesModel->addInq('tfollowup',$tambah_follow);
+		if($data >=1){
+			$this->session->set_flashdata('msg', 
+            	'<div class="alert alert-info alert-dismissible" role="alert">
+            		<i class="fa fa-info-circle"></i>
+            			Data has been recorded 
+                </div>'); 
+			redirect('SalesAdmin/fuform');
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Data input failed
+                </div>'); 
+			redirect('SalesAdmin/fuform');
+		}
 
 	}
 	public function passign(){
@@ -288,7 +349,22 @@ class SalesAdmin extends CI_Controller {
 			'supp_code3'=>""
 		);
 		$tfollow = $this->salesModel->addInq('tfollowup',$tambah_tfollow);
-		$supp = $this->salesModel->addInq('supp_assign',$tambah_supp);		
+		$supp = $this->salesModel->addInq('supp_assign',$tambah_supp);
+		if($tfollow >=1 || $supp >=1){
+			$this->session->set_flashdata('msg', 
+            	'<div class="alert alert-info alert-dismissible" role="alert">
+            		<i class="fa fa-info-circle"></i>
+            			Data has been recorded 
+                </div>'); 
+			redirect('SalesAdmin/passign');
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Data input failed
+                </div>'); 
+			redirect('SalesAdmin/passign');
+		}		
 	}
 	public function present(){
 		$data = $this->salesModel->selectPatner();
@@ -338,6 +414,21 @@ class SalesAdmin extends CI_Controller {
 		$res = $this->salesModel->UpdateData('progress',$update_data,$where);
 		$tfollowpresent = $this->salesModel->addInq('tfollowup',$tambah_tfollowpresent);
 		$tpresent = $this->salesModel->addInq('tpresentation',$tambah_present);
+		if($res >=1 || $tfollowpresent >=1 || $tpresent >=1){
+			$this->session->set_flashdata('msg', 
+            	'<div class="alert alert-info alert-dismissible" role="alert">
+            		<i class="fa fa-info-circle"></i>
+            			Data has been recorded 
+                </div>'); 
+			redirect('SalesAdmin/present');
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Data input failed
+                </div>'); 
+			redirect('SalesAdmin/present');
+		}
 	}
 	public function poc(){
 		$data = $this->salesModel->selectPatner();
@@ -387,6 +478,22 @@ class SalesAdmin extends CI_Controller {
 		$res = $this->salesModel->UpdateData('progress',$update_data,$where);
 		$followpoc = $this->salesModel->addInq('tfollowup',$tambah_followpoc);
 		$tpoc = $this->salesModel->addInq('tpoc',$tambah_tpoc);
+
+		if($res >=1 || $followpoc >=1 || $tpoc >=1){
+			$this->session->set_flashdata('msg', 
+            	'<div class="alert alert-info alert-dismissible" role="alert">
+            		<i class="fa fa-info-circle"></i>
+            			Data has been recorded 
+                </div>'); 
+			redirect('SalesAdmin/poc');
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Data input failed
+                </div>'); 
+			redirect('SalesAdmin/poc');
+		}
 	}
 	public function poption(){
 		$data = $this->salesModel->selectPatner();
@@ -431,6 +538,22 @@ class SalesAdmin extends CI_Controller {
 		$where = array('id_lead' => $lead );
 		$res = $this->salesModel->UpdateData('lead_sale',$update_product,$where);
 		$insertFollowup = $this->salesModel->addInq('tfollowup',$tambah_followup);
+		if($res >=1 || $insertFollowup >=1){
+			$this->session->set_flashdata('msg', 
+            	'<div class="alert alert-info alert-dismissible" role="alert">
+            		<i class="fa fa-info-circle"></i>
+            			Data has been recorded<br>
+            			ID Lead : '.$lead.'
+                </div>'); 
+			redirect('SalesAdmin/poption');
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Data input failed
+                </div>'); 
+			redirect('SalesAdmin/poption');
+		}
 	}
 	public function aprogress(){
 		$data = $this->salesModel->selectPatner();
@@ -476,6 +599,22 @@ class SalesAdmin extends CI_Controller {
 			'fu_by'=>$by
 		);
 		$followAdjust = $this->salesModel->addInq('tfollowup',$tambah_followAdjust);
+		if($followAdjust >=1 || $res >=1){
+			$this->session->set_flashdata('msg', 
+            	'<div class="alert alert-info alert-dismissible" role="alert">
+            		<i class="fa fa-info-circle"></i>
+            			Data has been recorded<br>
+            			ID Lead : '.$lead.'
+                </div>'); 
+			redirect('SalesAdmin/aprogress');
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Data input failed
+                </div>'); 
+			redirect('SalesAdmin/aprogress');
+		}
 	}
 	public function dprospect(){
 		$data = $this->salesModel->selectPatner();
@@ -502,6 +641,21 @@ class SalesAdmin extends CI_Controller {
 		$drop = $this->salesModel->addInq('tfollowup',$tambah_followup);
 		$where = array('id_lead' => $lead );
 		$res = $this->salesModel->UpdateData('tlead',$update_status,$where);
+		if($drop >=1 || $res >=1){
+			$this->session->set_flashdata('msg', 
+            	'<div class="alert alert-info alert-dismissible" role="alert">
+            		<i class="fa fa-info-circle"></i>
+            			Data has been recorded<br>
+                </div>'); 
+			redirect('SalesAdmin/dprospect');
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Data input failed
+                </div>'); 
+			redirect('SalesAdmin/dprospect');
+		}
 	}
 	public function futimeline(){
 		$data = $this->salesModel->showCustomer();
@@ -630,6 +784,21 @@ class SalesAdmin extends CI_Controller {
 			$detail = $this->salesModel->addInq('quotation_detail',$detailData);
 		}
 		$quote = $this->salesModel->addInq('quotation',$quoteData);
+		if($quote >=1){
+			$this->session->set_flashdata('msg', 
+            	'<div class="alert alert-info alert-dismissible" role="alert">
+            		<i class="fa fa-info-circle"></i>
+            			Data has been recorded 
+                </div>'); 
+			redirect('SalesAdmin/cquotation');
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Data input failed
+                </div>'); 
+			redirect('SalesAdmin/cquotation');
+		}
 	}
 	public function squotation(){
 		$data = $this->salesModel->quatationSend();
@@ -685,9 +854,25 @@ class SalesAdmin extends CI_Controller {
 		$idrev = array('id_quotation'=>$idquo,
 						'rev'=>$rev
 		);
-		$res = $this->salesModel->UpdateData('progress',$update_data,$where);
+		$resa = $this->salesModel->UpdateData('progress',$update_data,$where);
 		$res = $this->salesModel->UpdateData('quotation',$update_status,$idrev);
 		$data = $this->salesModel->addInq('tfollowup',$tambah_sendqu);
+		if($data >=1 || $resa >=1 || $res>=1 ){
+			$this->session->set_flashdata('msg', 
+            	'<div class="alert alert-info alert-dismissible" role="alert">
+            		<i class="fa fa-info-circle"></i>
+            			Data has been recorded 
+                </div>'); 
+			redirect('SalesAdmin/squotation');
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Data input failed
+                </div>'); 
+			redirect('SalesAdmin/squotation');
+		}
+
 	}
 	public function qsummary(){
 		$data = $this->salesModel->quatation();
@@ -795,6 +980,21 @@ class SalesAdmin extends CI_Controller {
 		$res = $this->salesModel->UpdateData('progress',$update_data,$where);
 		$pro = $this->salesModel->UpdateData('proposal',$update_proposal,$updateWhere);
 		$data = $this->salesModel->addInq('tfollowup',$tambah_send);
+		if($data >=1 || $res>=1 || $pro>=1){
+			$this->session->set_flashdata('msg', 
+            	'<div class="alert alert-info alert-dismissible" role="alert">
+            		<i class="fa fa-info-circle"></i>
+            			Data has been recorded 
+                </div>'); 
+			redirect('SalesAdmin/sproposal');
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Data input failed
+                </div>'); 
+			redirect('SalesAdmin/sproposal');
+		}
 	}
 	public function cproposal(){
 		$data = $this->salesModel->showCustomer();
@@ -890,6 +1090,21 @@ class SalesAdmin extends CI_Controller {
 			$cwdline = $this->salesModel->addInq('proposal_custom_workdays',$tambah_cwdline);
 		}
 		$data = $this->salesModel->addInq('proposal',$tambah_inq);
+		if($data >=1){
+			$this->session->set_flashdata('msg', 
+            	'<div class="alert alert-info alert-dismissible" role="alert">
+            		<i class="fa fa-info-circle"></i>
+            			Data has been recorded 
+                </div>'); 
+			redirect('SalesAdmin/cproposal');
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Data input failed
+                </div>'); 
+			redirect('SalesAdmin/cproposal');
+		}
 	}
 	public function revProposal($get){
 		$idpro = substr($get,0,10);
