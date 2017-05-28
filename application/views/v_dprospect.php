@@ -41,7 +41,7 @@
 							<div class="col-md-12">
 				            <div class="col-lg-12">
 				                    <label>Reason</label>
-                                <textarea id="remark" name="comment" rows="10" cols="80" maxlength="200">
+                                <textarea id="editor1" name="comment" rows="10" cols="80" maxlength="200">
 				                    </textarea>
 				            </div>
 				            </div>
@@ -51,4 +51,8 @@
 						</form>
 <script>   
     $('#notifications').slideDown('slow').delay(3000).slideUp('slow');
+    $(function () {
+	        CKEDITOR.replace('editor1');
+	        $(".textarea").wysihtml5();
+      	});
 </script>

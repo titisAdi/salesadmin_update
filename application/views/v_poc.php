@@ -63,7 +63,8 @@
 							</div>
 							<div class="form-group">
                                 <label>Respond and Comment</label>
-                                <textarea class="form-control" rows="5" name="editor1"></textarea>
+                                <textarea id="editor1" name="editor1" rows="50" cols="100">
+								</textarea>
                             </div>
                             <div>
 							<button type="submit" class="btn btn-default">Submit</button>
@@ -90,13 +91,6 @@
 		autoclose: true,
 		todayHighlight: true
 		});
-      $(function () {
-        // Replace the <textarea id="editor1"> with a CKEditor
-        // instance, using default configuration.
-        CKEDITOR.replace('editor1');
-        //bootstrap WYSIHTML5 - text editor
-        $(".textarea").wysihtml5();
-      });
 	  function addRow(tableID)
 		{var table=document.getElementById(tableID);
 		var rowCount=table.rows.length;
@@ -123,4 +117,8 @@
 	}
 
 	$('#notifications').slideDown('slow').delay(3000).slideUp('slow');
+	$(function () {
+	        CKEDITOR.replace('editor1');
+	        $(".textarea").wysihtml5();
+      	});
 	</script>

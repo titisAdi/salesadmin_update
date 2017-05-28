@@ -74,4 +74,8 @@
 			</div>
 <script>   
     $('#notifications').slideDown('slow').delay(3000).slideUp('slow');
+    $(function () {
+            CKEDITOR.replace('editor1');
+            $(".textarea").wysihtml5();
+        });
 </script>

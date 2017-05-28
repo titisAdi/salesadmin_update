@@ -412,8 +412,8 @@
 			$('#cwdsubTotal').val( cwdsubTotal.toFixed(2) );
 		}
 		$(function () {
-        CKEDITOR.replace('editor1');
-        $(".textarea").wysihtml5();
-      });
+	        CKEDITOR.replace('editor1');
+	        $(".textarea").wysihtml5();
+      	});
 		 $('#notifications').slideDown('slow').delay(3000).slideUp('slow');
 	</script>
