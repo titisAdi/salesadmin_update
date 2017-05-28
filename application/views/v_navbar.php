@@ -60,7 +60,8 @@
 		<script src="<?php echo base_url()."assets/vendor/";?>jquery/jquery.steps.min.js"></script>
 		<script src="<?php echo base_url()."assets/vendor/";?>jquery/initial.js"></script>
 		<script src="<?php echo base_url()."assets/vendor/";?>jquery/jquery.stepper.src.js"></script>
-		<script src="<?php echo base_url()."assets/vendor/";?>jquery/dataTables.bootstrap.js"></script>
+		<script src="<?php echo base_url()."assets/vendor/";?>datatables/dataTables.bootstrap.js"></script>
+		<script src="<?php echo base_url()."assets/vendor/";?>datatables/jquery.dataTables.js"></script>
 		<script src="<?php echo base_url()."assets/vendor/";?>bootstrap/js/bootstrap.min.js"></script>
 		<script src="<?php echo base_url()."assets/vendor/";?>jquery-slimscroll/jquery.slimscroll.min.js"></script>
 		<script src="<?php echo base_url()."assets/vendor/";?>jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
@@ -72,5 +73,6 @@
 		<script>
         $('#profile').initial(); 
     	</script>
+    	
 </body>
 </html>

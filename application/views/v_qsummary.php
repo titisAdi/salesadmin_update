@@ -16,7 +16,7 @@
                         </p>
 				</div>
 				<div class="panel-body">
-					<table class="table table-bordered table-hover table-striped">
+					<table class="table table-bordered table-hover table-striped" id="example1">
                                         <thead>
                                             <tr>
                                                 <th>No.</th>
@@ -57,3 +57,16 @@
                                         </tr>
                                         </tbody>
                                     </table>
+<script type="text/javascript">
+    $(function () {
+    $("#example1").dataTable();
+        $('#example2').dataTable({
+            "bPaginate": true,
+            "bLengthChange": false,
+            "bFilter": false,
+            "bSort": true,
+            "bInfo": true,
+            "bAutoWidth": false
+        });
+    });
+</script>

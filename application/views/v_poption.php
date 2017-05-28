@@ -16,7 +16,7 @@
                         </p>
 				</div>
 				<div class="panel-body">
-					<table id="table_id" class="table table-striped table-bordered" cellspacing="0" width="100%">
+					<table id="example1" class="table table-striped table-bordered" cellspacing="0" width="100%">
 				        <thead>
 				            <tr>
 				                <th style="width: 45%">ID Lead</th>
@@ -34,3 +34,16 @@
 				            <?php } ?>
 				        </tbody>
 				    </table>
+<script type="text/javascript">
+	$(function () {
+	$("#example1").dataTable();
+		$('#example2').dataTable({
+			"bPaginate": true,
+		    "bLengthChange": false,
+		    "bFilter": false,
+		    "bSort": true,
+		    "bInfo": true,
+		    "bAutoWidth": false
+		});
+	});
+</script>				    
