@@ -51,7 +51,10 @@ class SalesModel extends CI_Model {
 		$lastevent = $this->db->query('select tfollowup.*, tlead.status, tlead.customer from tfollowup left join tlead on tfollowup.id_lead = tlead.id_lead where `followup_date` = (select max(`followup_date`) from tfollowup as m2 where tfollowup.`id_lead` = m2.`id_lead`) and tlead.status = "aktif" order by tfollowup.followup_date asc');
 		return $lastevent->result_array();
 	}
-	
+	public function HapusData($tableName, $where){
+		$res = $this -> db -> delete($tableName,$where);
+		return $res;
+	}
 	public function browseInq(){
 		$browseInq = $this->db->query('select tinq.*, tlead.id_lead from tinq left join tlead on tinq.inq_no = tlead.inq_no');
 		return $browseInq->result_array();
@@ -95,10 +98,6 @@ class SalesModel extends CI_Model {
 	public function tpoc_item($id){
 		$selectProduct = $this->db->query('select * from tpoc_item '.$id);
 		return $selectProduct->result_array();
-	}
-	public function HapusData($tableName, $where){
-		$res = $this -> db -> delete($tableName,$where);
-		return $res;
 	}
 	public function terakhir($today){
 		$query = $this->db->query("SELECT substr(max(id_lead),3,7) AS last FROM tlead WHERE substr(id_lead,3,4) LIKE ".$today);

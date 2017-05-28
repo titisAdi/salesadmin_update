@@ -17,6 +17,7 @@
 				</div>
 				<div class="panel-body">
 					<div class="box-body table-responsive">
+					<div id="notifications"><?php echo $this->session->flashdata('msg'); ?></div>
                   	<table id="example1" class="table table-bordered table-striped">
 						<thead>
 							<tr>
@@ -49,7 +50,7 @@
                                     <td><?php echo $bInq['message']?></td>
                                     <td><?php echo $bInq['idate']?></td>
                                     <td><i class="fa fa-flag-checkered" aria-hidden="true"></i>   
-                                    ||   <i class="fa fa-trash" aria-hidden="true" title="Remove"></i> </td>
+                                    ||   <a href="javascript:;" data-id="<? echo $bInq['inq_no'] ?>" onclick="return konfirmasi()" data-toggle="modal" data-target="#modal-konfirmasi"><i class="fa fa-trash" aria-hidden="true" title="Remove"></i> </td>
                             <?php }?>
                         </tbody>
 					</table>
@@ -57,8 +58,26 @@
 				</div>
 			</div>
 
-			<script type="text/javascript">
-		      $(function () {
+	<div id="modal-konfirmasi" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content"> 
+             	<div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Confirmation</h4>
+                </div>
+                <div class="modal-body btn-info">
+                    Are you sure to Delete this Data ?
+                </div>
+                <div class="modal-footer">
+                    <a href="javascript:;" class="btn btn-danger" id="hapus-true-data">Yes</a>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+		<script type="text/javascript">
+		    $(function () {
 		        $("#example1").dataTable();
 		        $('#example2').dataTable({
 		          "bPaginate": true,
@@ -68,6 +87,15 @@
 		          "bInfo": true,
 		          "bAutoWidth": false
 		        });
-		      });
-		    </script>
+		    });
+		    $(document).ready(function(){
+				$('#modal-konfirmasi').on('show.bs.modal', function (event) {
+				var div = $(event.relatedTarget)
+				var id = div.data('id')
+				var modal = $(this)
+				modal.find('#hapus-true-data').attr("href","<?php echo base_url()."index.php/SalesAdmin/remove/".$bInq['inq_no']; ?>");
+				})
+			});
+			 $('#notifications').slideDown('slow').delay(3000).slideUp('slow');
+		</script>
 		    

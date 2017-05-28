@@ -36,6 +36,25 @@ class SalesAdmin extends CI_Controller {
 		$this->load->view('v_leftside');
 		$this->load->view('v_idata',array('data'=>$data));
 	}
+	public function remove($kode){
+		$where = array('tinq.inq_no' => $kode );
+		$res = $this->salesModel->HapusData('tinq',$where);
+		if($res >=1){
+			$this->session->set_flashdata('msg', 
+            	'<div class="alert alert-info alert-dismissible" role="alert">
+            		<i class="fa fa-info-circle"></i>
+            			Data has been removed 
+                </div>'); 
+			redirect('SalesAdmin/idata');
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Delete Data Failed
+                </div>'); 
+			redirect('SalesAdmin/idata');
+		}
+	}
 	public function aidata(){
 		$data = $this->salesModel->showCustomer();
 		$this->load->view('v_navbar');
