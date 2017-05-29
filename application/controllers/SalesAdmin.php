@@ -403,6 +403,14 @@ class SalesAdmin extends CI_Controller {
 		$this->load->view('v_present',array('data'=>$data));
 	}
 	public function pro_presentation(){
+		$path_file = 'presentation/'.$_POST['by'];
+		$type = explode('.', $_FILES['document']['name']);
+		$type = $type[count($type)-1];
+		$url = $path_file.'.'.$type;
+			in_array($type, array('docx', 'doc', 'pptx', 'pdf'));
+			is_uploaded_file($_FILES['document']['tmp_name']);
+			move_uploaded_file($_FILES['document']['tmp_name'], $url);
+		
 		$lead = $_POST['lead'];
 		$date = $_POST['fu_date'];
 		$loc = $_POST['loc'];
@@ -410,6 +418,8 @@ class SalesAdmin extends CI_Controller {
 		$comment = $_POST['editor1'];
 		$txtbox = $_POST['txt'];
 		$value = $_POST['txt2'];
+		$document = $_POST['by'].'.'.$type;
+		
 		$tambah_tfollowpresent=array(
 			'followup_date'=>$date,
 			'id_lead'=>$lead,
@@ -426,7 +436,8 @@ class SalesAdmin extends CI_Controller {
 			'pre_date'=>$date,
 			'location'=>$loc,
 			'by'=>$by,
-			'comment'=>$comment
+			'comment'=>$comment,
+			'document'=>$document
 		);
 		$update_data=array(
 			'pre'=>"30"
@@ -467,6 +478,14 @@ class SalesAdmin extends CI_Controller {
 		$this->load->view('v_poc',array('data'=>$data));
 	}
 	public function pro_poc(){
+		$path_file = 'poc/'.$_POST['by'];
+		$type = explode('.', $_FILES['document']['name']);
+		$type = $type[count($type)-1];
+		$url = $path_file.'.'.$type;
+			in_array($type, array('docx', 'doc', 'pptx', 'pdf'));
+			is_uploaded_file($_FILES['document']['tmp_name']);
+			move_uploaded_file($_FILES['document']['tmp_name'], $url);
+		
 		$lead = $_POST['lead'];
 		$date = $_POST['fu_date'];
 		$loc = $_POST['loc'];
@@ -474,6 +493,8 @@ class SalesAdmin extends CI_Controller {
 		$comment = $_POST['editor1'];
 		$txtbox = $_POST['txt'];
 		$value = $_POST['value'];
+		$document = $_POST['by'].'.'.$type;
+		
 		$tambah_followpoc=array(
 			'followup_date'=>$date,
 			'id_lead'=>$lead,
@@ -490,7 +511,8 @@ class SalesAdmin extends CI_Controller {
 			'poc_date'=>$date,
 			'loc'=>$loc,
 			'by'=>$by,
-			'comment'=>$comment
+			'comment'=>$comment,
+			'document'=>$document
 		);
 		$update_data=array(
 			'poc'=>"10"
