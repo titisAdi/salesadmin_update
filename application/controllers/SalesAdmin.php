@@ -745,6 +745,7 @@ class SalesAdmin extends CI_Controller {
 		$this->load->view('v_leftside');
 		$this->load->view('v_pocreport',$date);
 	}
+
 	public function prgreport(){
 		$progress = $this->salesModel->progressReport();
 		$this->load->view('v_navbar');
