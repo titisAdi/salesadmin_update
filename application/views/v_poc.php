@@ -16,7 +16,7 @@
                         </p>
 				</div>
 				<div class="panel-body">
-					<form role="form" method="post" action="<?php echo base_url()."index.php/SalesAdmin/pro_poc/"?>">
+					<form role="form" method="post" action="<?php echo base_url()."index.php/SalesAdmin/pro_poc/"?>"enctype="multipart/form-data">
 						<div id="notifications"><?php echo $this->session->flashdata('msg'); ?></div>
 							 <div class="form-group" name="lead">
 			                      <label>Lead ID / Customer : </label>
@@ -62,11 +62,16 @@
 								<a href="#" onclick="deleteRow('dataTable')">Remove</a>
 							</div>
 							<div class="form-group">
-                                <label>Respond and Comment</label>
-                                <textarea id="editor1" name="editor1" rows="50" cols="100">
+								<label>Respond and Comment</label>
+								<textarea id="editor1" name="editor1" rows="50" cols="100">
 								</textarea>
-                            </div>
-                            <div>
+							</div>
+							<div class="form-group">
+								<label>Upload File</label>
+								<?php echo form_open_multipart('upload/do_upload');?>
+								<?php echo form_upload('document'); ?>
+							</div>
+                            				<div>
 							<button type="submit" class="btn btn-default">Submit</button>
 							</div>
 						</form>
