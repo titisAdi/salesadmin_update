@@ -18,6 +18,10 @@ class SalesModel extends CI_Model {
 		$query = $this->db->get();
 		return $query->result_array();
 	}
+	public function show_profile($where){
+		$data = $this->db->query('select * from tuser '. $where);
+		return $data->result_array();
+	}
 	public function wrong_password($username, $value){
 		$this->db->set('authentication', $value);
 		$this->db->where("username", $username);

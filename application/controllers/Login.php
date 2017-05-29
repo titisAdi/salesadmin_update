@@ -77,8 +77,35 @@ class Login extends CI_Controller {
 		}
 	}
 	public function profile(){
+		$by = $_SESSION['username'];
+		$data = $this->salesModel->show_profile("where username = '$by'");
+		$profile = array(
+			'username'=>$data[0]['username'], 'namalengkap'=>$data[0]['namalengkap'],
+			'password'=>$data[0]['password'], 'level'=>$data[0]['level'],
+			'dateofjoin'=>$data[0]['dateofjoin']
+		);
 		$this->load->view('v_navbar');
 		$this->load->view('v_leftside');
-		$this->load->view('v_profile');
+		$this->load->view('v_profile',$profile);
+	}
+	public function changePassword(){
+		$curpassword = $_POST['curpassword'];
+		$secure = sha1(md5($curpassword));
+		$newpassword = $_POST['newpassword'];
+		$confpassword = $_POST['confpassword'];
+		$by = $_SESSION['username'];
+		$cek = $this->salesModel->cek_user($by, $secure);
+		$tes = count($cek);
+		if($tes > 0){
+			//$res = $this->salesModel->UpdateData('tuser',$newpassword,$by);
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    The password you entered is incorrect. Try again
+                </div>'); 
+			redirect('Login/profile');
+		}
+		
 	}
 }

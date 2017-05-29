@@ -44,7 +44,8 @@
 						</li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<img data-name="<?php echo $_SESSION['username']; ?>" id="profile" class="img-circle" alt="Avatar" width="40px" height="32px"/><span><?php echo $_SESSION['username']; ?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<img data-name="<?php echo $_SESSION['username']; ?>" id="profile" class="img-circle" alt="Avatar" width="40px" height="32px"/>
+							<span><?php echo $_SESSION['username']; ?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
 								<li><a href="<?php echo base_url()."index.php/Login/profile/"?>"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
 								<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
