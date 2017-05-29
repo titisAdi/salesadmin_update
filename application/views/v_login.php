@@ -5,8 +5,7 @@
 	<title>Sales Admin | Login</title>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-	<link rel="stylesheet" href="<?php echo base_url()."assets/login/"?>css/style.css">
+	<link rel="stylesheet" href="<?php echo base_url()."assets/vendor/"?>login/css/style.css">
 	<link href="<?php echo base_url()."assets/vendor/";?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
 	<link href="<?php echo base_url()."assets/vendor/";?>bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<?php echo base_url()."assets/vendor/";?>login/css/style.css" rel="stylesheet">
@@ -31,11 +30,11 @@
 			<span class="state">Log in</span>
 
 		</button>
-		<!--<a href="<?php echo base_url()."index.php/forget/find";?>">Forgot your password?</a> </br>-->
-		<a href="<?php echo base_url()."index.php/Sales/signup"; ?>">Register a new User</a>
+		<a href="<?php echo base_url()."index.php/Login/signup"; ?>">Register a new User</a>
 	</form>
 	</div>
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-	<script src="<?php echo base_url()."assets/login"?>js/index.js"></script>
+	<script src="<?php echo base_url()."assets/vendor"?>login/js/index.js"></script>
+	<script src="<?php echo base_url()."assets/vendor"?>prefixfree-gh-pages/prefixfree.min.js"></script>
 </body>
 </html>

@@ -48,6 +48,34 @@ class Login extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect ('login/index');
 	}
+	public function signup()
+	{
+		$this->load->view('v_signup');
+	}
+	public function addUser(){
+		$username = $_POST['username'];
+		$namalengkap = $_POST['name'];
+		$password = $_POST['password'];
+		$secure = sha1(md5($password));
+		$data['err_message'] = "";
+		$tambahUser = array(
+			'username' => $username,
+			'namalengkap' => $namalengkap,
+			'password' => $secure,
+			'level' => "sales"
+		);
+		$res = $this->salesModel->TambahUser('tuser',$tambahUser);
+		if($res >=1){
+			redirect ('SalesAdmin/salesMasuk');
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Delete Data Failed
+                </div>'); 
+			redirect('SalesAdmin/signup');
+		}
+	}
 	public function profile(){
 		$this->load->view('v_navbar');
 		$this->load->view('v_leftside');
