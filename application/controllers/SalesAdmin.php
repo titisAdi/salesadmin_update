@@ -299,6 +299,14 @@ class SalesAdmin extends CI_Controller {
 		$this->load->view('v_fuform',array('data'=>$data));
 	}
 	public function followup(){
+		$path_file = 'upload/'.$_POST['pic'];
+		$type = explode('.', $_FILES['document']['name']);
+		$type = $type[count($type)-1];
+		$loc = $path_file.'.'.$type;
+			in_array($type, array('docx', 'doc', 'pptx', 'pdf'));
+			is_uploaded_file($_FILES['document']['tmp_name']);
+			move_uploaded_file($_FILES['document']['tmp_name'], $loc);
+		
 		$fu_date = $_POST['fu_date'];
 		$id_lead = $_POST['lead'];
 		$pic = $_POST['pic'];
@@ -308,6 +316,8 @@ class SalesAdmin extends CI_Controller {
 		$comment = $_POST['editor1'];
 		$via = $_POST['via'];
 		$by = $_SESSION['username'];
+		$document = $_POST['pic'].'.'.$type;
+		
 		$tambah_follow = array(
 			'followup_date'=>$fu_date,
 			'id_lead'=>$id_lead,
@@ -317,7 +327,8 @@ class SalesAdmin extends CI_Controller {
 			'email'=>$email,
 			'comment'=>$comment,
 			'via'=>$via,
-			'fu_by'=>$by
+			'fu_by'=>$by,
+			'document'=>$document
 		);
 
 		$data = $this->salesModel->addInq('tfollowup',$tambah_follow);
