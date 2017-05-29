@@ -94,10 +94,30 @@ class Login extends CI_Controller {
 		$newpassword = $_POST['newpassword'];
 		$confpassword = $_POST['confpassword'];
 		$by = $_SESSION['username'];
+		$where = array('username' => $by );
 		$cek = $this->salesModel->cek_user($by, $secure);
 		$tes = count($cek);
 		if($tes > 0){
-			//$res = $this->salesModel->UpdateData('tuser',$newpassword,$by);
+			if($newpassword==$confpassword){
+				$passBaru = sha1(md5($newpassword));
+				$updatePass=array(
+					'password'=>$passBaru
+				);
+				$res = $this->salesModel->UpdateData('tuser',$updatePass,$where);
+				$this->session->set_flashdata('msg', 
+            	'<div class="alert alert-info alert-dismissible" role="alert">
+            		<i class="fa fa-info-circle"></i>
+            			Your Password succesfully changed 
+                </div>'); 
+				redirect('Login/profile');
+			}else{
+				$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Your password doesn&acute;t match 
+                </div>'); 
+			redirect('Login/profile');
+			}
 		}else{
 			$this->session->set_flashdata('msg', 
                 '<div class="alert alert-danger alert-dismissible" role="alert">

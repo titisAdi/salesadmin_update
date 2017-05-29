@@ -63,17 +63,17 @@
 					      		<form role="form" method="post" action="<?php echo base_url()."index.php/Login/changePassword/"?>">
 						      		<div class="form-group">
 		                                <label>Current Password</label>
-		                                <input class="form-control" name="curpassword" type="password">
+		                                <input class="form-control" name="curpassword" type="password" required>
 		                            </div>
 
 		                            <div class="form-group">
 		                                <label>New Password </label>
-		                                <input class="form-control" name="newpassword" type="password">
+		                                <input class="form-control" name="newpassword" type="password" required>
 		                            </div>
 
 		                            <div class="form-group">
 		                                <label>Confirm New Password</label>
-		                                <input class="form-control" name="confpassword" type="password">
+		                                <input class="form-control" name="confpassword" type="password" required>
 		                            </div>
 						</div>
 						<div class="modal-footer">
