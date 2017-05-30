@@ -11,6 +11,10 @@ class SalesModel extends CI_Model {
 		$this->db->where('password', $password);
 		return $this->db->get('tuser')->row();
 	}
+	public function userada($username){
+		$this->db->where('username', $username);
+		return $this->db->get('tuser')->row();
+	}
 	public function authen_user($username){
 		$this->db->select('authentication');
 		$this->db->where('username', $username);
@@ -27,7 +31,6 @@ class SalesModel extends CI_Model {
 		$this->db->where("username", $username);
 		$this->db->update('tuser');
 	}
-	
 	public function progress(){
 		$data = $this->db->query('select tlead.id_lead, tlead.customer, tlead.employee, tlead.city, 
 								lead_sale.productcode, lead_sale.productname, 

@@ -57,10 +57,10 @@
 											<tr>
 												<th>Lead</th>
 												<th>Customer</th>
-												<th>Location</th>
+												<th>Place</th>
 												<th>Patner</th>
-												<th>Amount (Rp.)</th>
-												<th>Progress</th>
+												<th>Sum</th>
+												<th>Pro</th>
 											</tr>
 										</thead>
 										<tbody>

@@ -17,6 +17,7 @@
 		<p class="admin"><b>Sales</b>Admin</p>
 		<hr>
 		<p class="title">Sign Up</p>
+		<h6 align="center"><?php echo $err_message;?></h6>
 		<input type="text" placeholder="Name" name="name" autofocus required/>
 		<i class="fa fa-user"></i>
 		<input type="text" placeholder="Username" name="username" required />

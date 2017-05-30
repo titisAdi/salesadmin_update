@@ -50,30 +50,28 @@ class Login extends CI_Controller {
 	}
 	public function signup()
 	{
-		$this->load->view('v_signup');
+		$data['err_message'] = "";
+		$this->load->view('v_signup',$data);
 	}
 	public function addUser(){
 		$username = $_POST['username'];
 		$namalengkap = $_POST['name'];
 		$password = $_POST['password'];
 		$secure = sha1(md5($password));
-		$data['err_message'] = "";
 		$tambahUser = array(
 			'username' => $username,
 			'namalengkap' => $namalengkap,
 			'password' => $secure,
 			'level' => "sales"
 		);
-		$res = $this->salesModel->TambahUser('tuser',$tambahUser);
-		if($res >=1){
-			redirect ('SalesAdmin/salesMasuk');
+		$exist = $this->salesModel->userada($username);
+		$tes = count($exist);
+		if($tes > 0){
+			$data['err_message'] = "Username has already exist";
+			$this->load->view('v_signup', $data);
 		}else{
-			$this->session->set_flashdata('msg', 
-                '<div class="alert alert-danger alert-dismissible" role="alert">
-                	<i class="fa fa-times-circle"></i>
-	                    Delete Data Failed
-                </div>'); 
-			redirect('SalesAdmin/signup');
+			$res = $this->salesModel->TambahUser('tuser',$tambahUser);
+			redirect ('SalesAdmin/salesMasuk');
 		}
 	}
 	public function profile(){
