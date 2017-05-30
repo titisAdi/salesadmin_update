@@ -29,18 +29,37 @@
 			                <table class="table table-user-information">
 			                    <tbody>
 			                      <tr>
-			                        <td>Full Name : </td>
+			                      	<td><i class="fa fa-user-circle-o" aria-hidden="true"></td>
+			                        <td></i>Full Name : </td>
 			                        <td><?php echo $namalengkap ?></td>
 			                      </tr>
 			                      <tr>
+			                      	<td><i class="fa fa-envelope" aria-hidden="true"></i></td>
+			                        <td>Email : </td>
+			                        <td><?php echo $email ?></td>
+			                      </tr>
+			                      <tr>
+			                      	<td><i class="fa fa-location-arrow" aria-hidden="true"></td>
+			                        <td></i>Address : </td>
+			                        <td><?php echo $address ?></td>
+			                      </tr>
+			                      <tr>
+			                      	<td><i class="fa fa-phone" aria-hidden="true"></td>
+			                        <td></i>Phone : </td>
+			                        <td><?php echo $phone ?></td>
+			                      </tr>
+			                      <tr>
+			                      	<td><i class="fa fa-level-up" aria-hidden="true"></i></td>
 			                        <td>Level : </td>
 			                        <td><?php echo $level ?></td>
 			                      </tr>
 			                      <tr>
-			                        <td>Date Of Join</td>
+			                      	<td><i class="fa fa-calendar" aria-hidden="true"></td>
+			                        <td></i>Date Of Join</td>
 			                        <td><?php echo $dateofjoin ?></td>
 			                      </tr>
 			                      <tr>
+			                      	<td></td>
 			                      	<td></td>
 			                      	<td><a href="#" data-toggle="modal" data-target="#exampleModal" id="myBtn">Change Password</a></td>
 			                      </tr>
