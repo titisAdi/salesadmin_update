@@ -3,14 +3,14 @@
 		<div class="container-fluid">
 			<div class="panel panel-headline">
 				<div class="panel-heading">
-					<h3 class="panel-title">Quotation Summary</h3>
+					<h3 class="panel-title">Quotation Send</h3>
 						<p class="panel-subtitle">
 							<ol class="breadcrumb">
 	                            <li>
 	                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
 	                            </li>
 	                            <li class="active">
-	                                <i class="fa fa-edit"></i> Quotation Summary
+	                                <i class="fa fa-edit"></i> Quotation Send
 	                            </li>
 	                        </ol>
                         </p>
