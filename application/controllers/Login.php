@@ -82,7 +82,8 @@ class Login extends CI_Controller {
 		$profile = array(
 			'username'=>$data[0]['username'], 'namalengkap'=>$data[0]['namalengkap'],
 			'password'=>$data[0]['password'], 'level'=>$data[0]['level'],
-			'dateofjoin'=>$data[0]['dateofjoin']
+			'dateofjoin'=>$data[0]['dateofjoin'], 'email'=>$data[0]['email'],
+			'address'=>$data[0]['alamat'],'phone'=>$data[0]['telepon']
 		);
 		$this->load->view('v_navbar');
 		$this->load->view('v_leftside');
