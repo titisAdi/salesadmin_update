@@ -50,8 +50,6 @@
 									</table>
 									<br>
 							  		<b>Result :</b> <?php echo $comment ?>
-							  		<br><br>
-							  		<b>Document : </b>
 								</div>
 
 							</div>
