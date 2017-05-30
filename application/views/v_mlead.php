@@ -45,7 +45,7 @@
 
                             <div class="form-group">
                                 <label>PIC : </label>
-                                <input type="Text" class="form-control" name="pic" value="" maxlength="25" autocomplete="off">
+                                <input type="Text" class="form-control" name="pic" value="" maxlength="30" autocomplete="off">
                                 <!--<p class="help-block">Example block-level help text here.</p>-->
                             </div>
 							
