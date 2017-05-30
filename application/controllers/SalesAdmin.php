@@ -299,7 +299,7 @@ class SalesAdmin extends CI_Controller {
 		$this->load->view('v_fuform',array('data'=>$data));
 	}
 	public function followup(){
-		$path_file = 'upload/'.$_POST['pic'];
+		$path_file = 'followup/'.$_POST['pic'];
 		$type = explode('.', $_FILES['document']['name']);
 		$type = $type[count($type)-1];
 		$loc = $path_file.'.'.$type;

@@ -1,0 +1,20 @@
+INSERT INTO `petugas`(`IDPetugas`, `namaPetugas`, `alamatPetugas`, `genderPetugas`, `shift`) VALUES ('4565274989201','Ellsworth Paine','Surabaya','1','Pagi')
+
+INSERT INTO `petugas`(`IDPetugas`, `namaPetugas`, `alamatPetugas`, `genderPetugas`, `shift`) VALUES ('4565274989202','Zoe Burley','Sidoarjo','1','Pagi')
+
+INSERT INTO `petugas`(`IDPetugas`, `namaPetugas`, `alamatPetugas`, `genderPetugas`, `shift`) VALUES ('4565274989203','Patience Arriaga','Sidoarjo','1','Pagi')
+
+INSERT INTO `petugas`(`IDPetugas`, `namaPetugas`, `alamatPetugas`, `genderPetugas`, `shift`) VALUES ('4565274989204','Quinn Flemming','Sidoarjo','0','Siang')
+
+INSERT INTO `petugas`(`IDPetugas`, `namaPetugas`, `alamatPetugas`, `genderPetugas`, `shift`) VALUES ('4565274989205','Patience Arriaga 	','Sidoarjo','0','Siang')
+
+INSERT INTO `petugas`(`IDPetugas`, `namaPetugas`, `alamatPetugas`, `genderPetugas`, `shift`) VALUES ('4565274989206','Sherryl Durr','Sidoarjo','1','Pagi')
+
+INSERT INTO `petugas`(`IDPetugas`, `namaPetugas`, `alamatPetugas`, `genderPetugas`, `shift`) VALUES ('4565274989207','Eun Witherspoon','Surabaya','0','Siang')
+
+INSERT INTO `petugas`(`IDPetugas`, `namaPetugas`, `alamatPetugas`, `genderPetugas`, `shift`) VALUES ('4565274989208','Sha Herbert','Mojokerto','1','Pagi')
+
+INSERT INTO `petugas`(`IDPetugas`, `namaPetugas`, `alamatPetugas`, `genderPetugas`, `shift`) VALUES ('4565274989209','Candi Fincher','Surabaya','1','Pagi')
+
+INSERT INTO `petugas`(`IDPetugas`, `namaPetugas`, `alamatPetugas`, `genderPetugas`, `shift`) VALUES ('4565274989210','Corrine Matney','Gresik','0','Siang')
+

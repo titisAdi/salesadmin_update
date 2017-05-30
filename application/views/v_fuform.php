@@ -16,7 +16,7 @@
                         </p>
 				</div>
 				<div class="panel-body">
-					<form role="form" action="<?php echo base_url()."index.php/SalesAdmin/followup/"?>" method="post" enctype="multipart/form-data">
+					<form role="form" action="<?php echo base_url()."index.php/SalesAdmin/followup/"?>" method="post" enctype="multipart/form-data" enctype="multipart/form-data">
                         <div id="notifications"><?php echo $this->session->flashdata('msg'); ?></div>
 						<div class="form-group" name="lead">
                             <label>Select Customer : </label>
