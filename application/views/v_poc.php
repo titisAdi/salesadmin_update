@@ -73,13 +73,8 @@
                                 <textarea id="editor1" name="editor1" rows="50" cols="100">
 								</textarea>
                             </div>
-							
-							
-                            <div>
-=======
-                            				<div>
->>>>>>> 4b8b334ebab9dcc41220f7bb55d1ac61244f07fb
-							<button type="submit" class="btn btn-default">Submit</button>
+               				<div>
+								<button type="submit" class="btn btn-default">Submit</button>
 							</div>
 						</form>
 					</div>
