@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'saleforadmin.000webhostapp.com',
-	'username' => 'id1814956_useradmin',
-	'password' => 'asdfghjkl1234567890',
-	'database' => 'id1814956_salesadmin',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
+	'database' => 'adminsales',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

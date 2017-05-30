@@ -987,7 +987,7 @@ class SalesAdmin extends CI_Controller {
                 	<i class="fa fa-times-circle"></i>
 	                    Database not found!
                 </div>'); 
-			redirect('SalesAdmin/psummary')
+			redirect('SalesAdmin/psummary');
 		}
 		
 	}
@@ -1099,7 +1099,7 @@ class SalesAdmin extends CI_Controller {
                 	<i class="fa fa-times-circle"></i>
 	                    Batabase not found!
                 </div>'); 
-			redirect('SalesAdmin/cproposal')
+			redirect('SalesAdmin/cproposal');
 		}
 		
 	}	
