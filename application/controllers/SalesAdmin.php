@@ -738,14 +738,26 @@ class SalesAdmin extends CI_Controller {
 		$tanggal = array('pre_date'=>$time[0]['pre_date']);
 		$comma_separated = implode("", $tanggal);
 		$participant = $this->salesModel->participant("where pre_date= '$comma_separated'");
-		$date = array(
-			'pre_date'=>$time[0]['pre_date'],'location'=>$time[0]['location'],
-			'by'=>$time[0]['by'],'name'=>$participant[0]['name'], 'pos'=>$participant[0]['pos'],
-			'comment'=>$time[0]['comment']
-		);
-		$this->load->view('v_navbar');
-		$this->load->view('v_leftside');
-		$this->load->view('v_presentReport',$date);
+		$timeTotal = count($time);
+		$participantTotal=count($participant);
+
+		if($participantTotal > 0 && $timeTotal > 0){
+				$date = array(
+				'pre_date'=>$time[0]['pre_date'],'location'=>$time[0]['location'],
+				'by'=>$time[0]['by'],'name'=>$participant[0]['name'], 'pos'=>$participant[0]['pos'],
+				'comment'=>$time[0]['comment']
+			);
+			$this->load->view('v_navbar');
+			$this->load->view('v_leftside');
+			$this->load->view('v_presentReport',$date);
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Database not found
+                </div>'); 
+			redirect('SalesAdmin/presentport');
+		}
 	}
 	public function pocport(){
 		$data = $this->salesModel->showCustomer();
@@ -758,14 +770,26 @@ class SalesAdmin extends CI_Controller {
 		$tanggal = array('poc_date'=>$time[0]['poc_date']);
 		$comma_separated = implode("", $tanggal);
 		$participant = $this->salesModel->tpoc_item("where poc_date= '$comma_separated'");
-		$date = array(
+		$timeTotal = count($time);
+		$participantTotal = count($participant);
+		if($timeTotal > 0 && $participantTotal >0){
+			$date = array(
 			'poc_date'=>$time[0]['poc_date'], 'loc'=>$time[0]['loc'],
 			'by'=>$time[0]['by'], 'item'=>$participant[0]['item'],
 			'proven'=>$participant[0]['proven'], 'comment'=>$time[0]['comment']
-		);
-		$this->load->view('v_navbar');
-		$this->load->view('v_leftside');
-		$this->load->view('v_pocreport',$date);
+			);
+			$this->load->view('v_navbar');
+			$this->load->view('v_leftside');
+			$this->load->view('v_pocreport',$date);
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Database not found
+                </div>'); 
+			redirect('SalesAdmin/pocport');
+		}
+		
 	}
 
 	public function prgreport(){
@@ -934,28 +958,54 @@ class SalesAdmin extends CI_Controller {
 		$this->load->view('v_qsummary',array('data'=>$data));
 	}
 	public function qreview($where){
-		$data = $this->salesModel -> quotationReview("where quotation_detail.id_rev ='$where'");
-		$preview = array('customer' => $data[0]['customer'],'address'=>$data[0]['address'],
+		$id = substr($where,0,10);
+		$rev = substr($where,10,2);
+		$data = $this->salesModel -> quotationReview(" where quotation.id_quotation ='$id' and quotation.rev ='$rev'");
+		$dataQty = count($data);
+		if($dataQty > 0){
+			$preview = array('customer' => $data[0]['customer'],'address'=>$data[0]['address'],
 			'subject'=>$data[0]['subject'], 'description'=>$data[0]['description'], 
 			'price'=>$data[0]['price'], 'qty'=>$data[0]['qty'],
 			'um'=>$data[0]['um'], 'total'=>$data[0]['total'],
 			'line'=>$data[0]['line'], 'type'=>$data[0]['type'],'subtotal1'=>$data[0]['subtotal1'],
 			'discount'=>$data[0]['discount'],'subtotal2'=>$data[0]['subtotal2'],'ppn'=>$data[0]['subtotal2']*0.1,
 			'remark'=>$data[0]['remark'], 'id_quotation'=>$data[0]['id_quotation'],'rev'=>$data[0]['rev'],'qdate'=>$data[0]['qdate']
-		);
+			);
 		$this -> load ->view('v_qpreview',$preview);
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Database not found
+                </div>'); 
+			redirect('SalesAdmin/qsummary');
+		}
+		
 	}	
 	public function qprint($where){
-		$data = $this->salesModel -> quotationReview("where quotation_detail.id_rev ='$where'");
-		$print = array('customer' => $data[0]['customer'],'address'=>$data[0]['address'],
+		$id = substr($where,0,10);
+		$rev = substr($where,10,2);
+		$data = $this->salesModel -> quotationReview(" where quotation.id_quotation ='$id' and quotation.rev ='$rev'");
+		$dataQty = count($data);
+		if($dataQty > 0){
+			$print = array('customer' => $data[0]['customer'],'address'=>$data[0]['address'],
 			'subject'=>$data[0]['subject'], 'description'=>$data[0]['description'], 
 			'price'=>$data[0]['price'], 'qty'=>$data[0]['qty'],
 			'um'=>$data[0]['um'], 'total'=>$data[0]['total'],
 			'line'=>$data[0]['line'], 'type'=>$data[0]['type'],'subtotal1'=>$data[0]['subtotal1'],
 			'discount'=>$data[0]['discount'],'subtotal2'=>$data[0]['subtotal2'],'ppn'=>$data[0]['subtotal2']*0.1,
 			'remark'=>$data[0]['remark'], 'id_quotation'=>$data[0]['id_quotation'],'rev'=>$data[0]['rev'],'qdate'=>$data[0]['qdate']
-		);
+			);
 		$this -> load ->view('v_qprint',$print);
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Database not found
+                </div>'); 
+			redirect('SalesAdmin/qsummary');
+		}
+		
 	}
 	public function qrevision($where){
 		$data = $this->salesModel->quotationReview("where quotation.id_quotation='$where'");

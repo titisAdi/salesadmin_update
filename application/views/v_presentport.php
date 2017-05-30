@@ -17,6 +17,7 @@
 				</div>
 				<div class="panel-body">
 					<table class="table table-hover" id="example1">
+						<div id="notifications"><?php echo $this->session->flashdata('msg'); ?></div>
 							<thead>
 								<tr>
 									<th>No. </th>
@@ -49,4 +50,5 @@
 		    "bAutoWidth": false
 		});
 	});
+	$('#notifications').slideDown('slow').delay(3000).slideUp('slow');
 </script>
