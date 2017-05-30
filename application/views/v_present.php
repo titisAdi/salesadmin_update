@@ -16,7 +16,7 @@
                         </p>
 				</div>
 				<div class="panel-body">
-					<form role="form" method="post" action="<?php echo base_url()."index.php/SalesAdmin/pro_presentation/"?>" enctype="multipart/form-data">
+					<form role="form" method="post" action="<?php echo base_url()."index.php/SalesAdmin/pro_presentation/"?>">
               <div id="notifications"><?php echo $this->session->flashdata('msg'); ?></div>
 						          <div class="form-group" name="lead">
                       <label>Lead ID / Customer : </label>
@@ -75,12 +75,6 @@
                     <textarea id="editor1" name="editor1" rows="10" cols="80" maxlength="255">
                      
                     </textarea>
-					
-					<div class="form-group">
-						<label>Upload File</label>
-						<?php echo form_open_multipart('upload/do_upload');?>
-						<?php echo form_upload('document'); ?>
-					</div>
                     <div>
                      <button type="submit" class="btn btn-default">Submit</button>
                     </div>
