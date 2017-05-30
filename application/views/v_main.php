@@ -7,7 +7,7 @@
 						</div>
 						<div class="panel-body">
 							<div class="row">
-								<div class="col-md-3">
+								<div class="col-md-6">
 									<div class="metric">
 										<span class="icon"><i class="fa fa-shopping-bag"></i></span>
 										<p>
@@ -23,7 +23,7 @@
 								</div>
 								<div class="col-md-3">
 								</div>
-								<div class="col-md-3">
+								<div class="col-md-6">
 									<div class="metric">
 										<span class="icon"><i class="fa fa-bar-chart"></i></span>
 										<p>

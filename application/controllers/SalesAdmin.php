@@ -976,21 +976,44 @@ class SalesAdmin extends CI_Controller {
 	}
 	public function psummary(){
 		$data = $this->salesModel->proposalSummary();
-		$this->load->view('v_navbar');
-		$this->load->view('v_leftside');
-		$this->load->view('v_psummary',array('data'=>$data));
+		$datac = count($data);
+		if($datac>0){
+			$this->load->view('v_navbar');
+			$this->load->view('v_leftside');
+			$this->load->view('v_psummary',array('data'=>$data));
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Database not found!
+                </div>'); 
+			redirect('SalesAdmin/psummary')
+		}
+		
 	}
 	public function sproposal(){
 		$data = $this->salesModel->selectProposalSend();
-		$this->load->view('v_navbar');
-		$this->load->view('v_leftside');
-		$this->load->view('v_sproposal',array('data'=>$data));
+		$datac = count($data);
+		if($datac > 0){
+			$this->load->view('v_navbar');
+			$this->load->view('v_leftside');
+			$this->load->view('v_sproposal',array('data'=>$data));
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Database not found!
+                </div>'); 
+			redirect('SalesAdmin/sproposal');
+		}
 	}
 	public function sendPropose($get){
 		$idpro = substr($get,0,10);
 		$rev = substr($get,10,2);
 		$data = $this->salesModel->proposalSend(" where proposal.idproposal ='$idpro' and proposal.rev ='$rev'");
-		$quote = array(
+		$datac=count($data);
+		if($datac>0){
+			$quote = array(
 			'id_lead'=>$data[0]['id_lead'],'date'=>$data[0]['date'],
 			'idproposal'=>$data[0]['idproposal'], 'rev'=>$data[0]['rev'],
 			'term'=>$data[0]['term'], 'signer'=>$data[0]['signer'],
@@ -999,6 +1022,15 @@ class SalesAdmin extends CI_Controller {
 		$this->load->view('v_navbar');
 		$this->load->view('v_leftside');
 		$this->load->view('v_sendProposal',$quote);
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Data input failed
+                </div>'); 
+			redirect('SalesAdmin/sendProposal');
+		}
+		
 	}
 	public function sendProposal(){
 		$fu_date = $_POST['fu_date'];
@@ -1033,7 +1065,10 @@ class SalesAdmin extends CI_Controller {
 		$res = $this->salesModel->UpdateData('progress',$update_data,$where);
 		$pro = $this->salesModel->UpdateData('proposal',$update_proposal,$updateWhere);
 		$data = $this->salesModel->addInq('tfollowup',$tambah_send);
-		if($data >=1 || $res>=1 || $pro>=1){
+		$datac = count($data);
+		$pro = count($proc);
+		$res = count($resc);
+		if($datac >=1 || $resc>=1 || $proc>=1){
 			$this->session->set_flashdata('msg', 
             	'<div class="alert alert-info alert-dismissible" role="alert">
             		<i class="fa fa-info-circle"></i>
@@ -1052,9 +1087,21 @@ class SalesAdmin extends CI_Controller {
 	public function cproposal(){
 		$data = $this->salesModel->showCustomer();
 		$product = $this->salesModel->showProduct();
-		$this->load->view('v_navbar');
-		$this->load->view('v_leftside');
-		$this->load->view('v_cproposal',array('data'=>$data,'product'=>$product));
+		$datac = count($data);
+		$productc = count($product);
+		if($data > 0 && $productc >0){
+			$this->load->view('v_navbar');
+			$this->load->view('v_leftside');
+			$this->load->view('v_cproposal',array('data'=>$data,'product'=>$product));
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Batabase not found!
+                </div>'); 
+			redirect('SalesAdmin/cproposal')
+		}
+		
 	}	
 	public function cproposal_process(){
 		$lead = $_POST['idlead'];
@@ -1165,7 +1212,11 @@ class SalesAdmin extends CI_Controller {
 		$data = $this->salesModel->proposalSend(" where proposal.idproposal ='$idpro' and proposal.rev ='$rev'");
 		$workday = $this->salesModel->workday(" where idproposal ='$idpro' and rev ='$rev'");
 		$panel = $this->salesModel->workdayPro(" where id_proposal = '$idpro' and rev='$rev'");
-		$quote = array(
+		$hitungData = count($data);
+		$hitungwd = count($workday);
+		$hitungpanel = count($panel);
+		if($hitungData>0 && $hitungpanel>0 && $hitungwd>0){
+			$quote = array(
 			'id_lead'=>$data[0]['id_lead'],'date'=>$data[0]['date'],
 			'idproposal'=>$data[0]['idproposal'], 'rev'=>$data[0]['rev'],
 			'term'=>$data[0]['term'], 'signer'=>$data[0]['signer'],
@@ -1177,6 +1228,16 @@ class SalesAdmin extends CI_Controller {
 		$this->load->view('v_navbar');
 		$this->load->view('v_leftside');
 		$this->load->view('v_revProposal',$quote);
+		}else{
+			$this->session->set_flashdata('msg', 
+                '<div class="alert alert-danger alert-dismissible" role="alert">
+                	<i class="fa fa-times-circle"></i>
+	                    Database Not Found
+                </div>'); 
+			redirect('SalesAdmin/psummary');
+		}
+		
+		
 	}
 	
 }
