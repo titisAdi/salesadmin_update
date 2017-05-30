@@ -61,18 +61,20 @@
 								</table>
 								<a href="#" onclick="deleteRow('dataTable')">Remove</a>
 							</div>
-							<div class="form-group">
-								<label>Respond and Comment</label>
-								<textarea id="editor1" name="editor1" rows="50" cols="100">
-								</textarea>
-							</div>
+
 							<div class="form-group">
 								<label>Upload File</label>
 								<?php echo form_open_multipart('upload/do_upload');?>
 								<?php echo form_upload('document'); ?>
 							</div>
-                            				<div>
-							<button type="submit" class="btn btn-default">Submit</button>
+							
+							<div class="form-group">
+                                <label>Respond and Comment</label>
+                                <textarea id="editor1" name="editor1" rows="50" cols="100">
+								</textarea>
+                            </div>
+               				<div>
+								<button type="submit" class="btn btn-default">Submit</button>
 							</div>
 						</form>
 					</div>

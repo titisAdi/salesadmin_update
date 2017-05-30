@@ -60,15 +60,19 @@
                                 <input class="form-control" name="pos">
                             </div>
 							
-									<h3>Comment & <small>Question</small></h3>
-	                            <textarea id="editor1" class="form-control" name="editor1" rows="10" cols="80" maxlength="255">
-	                     
-	                            </textarea>
-			    <div class="form-group">
+							<div class="form-group">
                                 <label>Upload File</label>
-				<?php echo form_open_multipart('upload/do_upload');?>
-				<?php echo form_upload('document'); ?>
+								<?php echo form_open_multipart('upload/do_upload');?>
+								<?php echo form_upload('document'); ?>
                             </div>
+							
+							<h3>Comment & <small>Question</small></h3>
+	                        <textarea id="editor1" class="form-control" name="editor1" rows="10" cols="80" maxlength="255">
+							</textarea>
+							
+							
+							
+							
 	                        <div class="form-group">
                             <button type="submit" class="btn btn-default">Submit</button>
                             <button type="reset" class="btn btn-default">Reset</button>
