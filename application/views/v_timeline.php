@@ -34,6 +34,7 @@
 												<th>Phone</th>
 												<th>Email</th>
 												<th>Comment</th>
+												<th>Action</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -50,6 +51,7 @@
 												<td><?php echo $phone ?></td>
 												<td><?php echo $email ?></td>
 												<td><?php echo $comment ?></td>
+												<td><a href="<?php echo base_url()."index.php/SalesAdmin/downloadFU/".$pic; ?>"><i class="fa fa-download" aria-hidden="true"></i> Download</a></td>
 											</tr>
 										</tbody>
 									</table>

@@ -18,18 +18,29 @@
 		<hr>
 		<p class="title">Sign Up</p>
 		<h6 align="center"><?php echo $err_message;?></h6>
-		<input type="text" placeholder="Name" name="name" autofocus required/>
-		<i class="fa fa-user"></i>
-		<input type="text" placeholder="Username" name="username" required />
-		<i class="fa fa-user"></i>
-		<input type="text" placeholder="Address" name="address" required />
-		<i class="fa fa-globe"></i>
-		<input type="email" placeholder="Email" name="email" required />
-		<i class="fa fa-envelope"></i>
-		<input type="text" placeholder="Phone" name="phone" required />
-		<i class="fa fa-phone"></i>
-		<input type="password" placeholder="Password" name="password" id="pass" required />
-		<i class="fa fa-key"></i>
+		<div class="row">
+			<div class="col-xs-6">
+				<input type="text" placeholder="Name" name="name" autofocus required/>
+				<i class="fa fa-user"></i>
+			</div>
+			<div class="col-xs-6">
+				<input type="text" placeholder="Username" name="username" required />
+				<i class="fa fa-user"></i>
+			</div>
+			<div class="col-xs-6">
+				<input type="email" placeholder="Email" name="email" required />
+				<i class="fa fa-envelope"></i>
+			</div>
+			<div class="col-xs-6">
+				<input type="text" placeholder="Phone" name="phone" required />
+				<i class="fa fa-phone"></i>
+			</div>
+				<input type="text" placeholder="Address" name="address" required />
+				<i class="fa fa-globe"></i>
+				<input type="password" placeholder="Password" name="password" id="pass" required />
+				<i class="fa fa-key"></i>
+		</div>
+
 		<button>
 			<i class="spinner"></i>
 			<span class="state">Sign Up</span>

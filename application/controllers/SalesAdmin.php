@@ -297,6 +297,10 @@ class SalesAdmin extends CI_Controller {
 		$this->load->view('v_leftside');
 		$this->load->view('v_fuform',array('data'=>$data));
 	}
+	public function downloadFU($down){
+		$name = $down.'.pdf';
+		force_download('followup/'.$name,NULL);
+	}
 	public function followup(){
 		$path_file = 'followup/'.$_POST['pic'];
 		$type = explode('.', $_FILES['document']['name']);
@@ -395,6 +399,10 @@ class SalesAdmin extends CI_Controller {
 			redirect('SalesAdmin/passign');
 		}		
 	}
+	public function downloadPresent($by){
+		$name = $by.'.pptx';
+		force_download('presentation/'.$name,NULL);
+	}
 	public function present(){
 		$data = $this->salesModel->selectPatner();
 		$this->load->view('v_navbar');
@@ -469,6 +477,10 @@ class SalesAdmin extends CI_Controller {
                 </div>'); 
 			redirect('SalesAdmin/present');
 		}
+	}
+	public function downloadPoc($by){
+		$name = $by.'.pdf';
+		force_download('poc/'.$name,NULL);
 	}
 	public function poc(){
 		$data = $this->salesModel->selectPatner();
