@@ -63,13 +63,6 @@
                                                 <td><?php echo number_format($grossprofit,0,',','.'); ?></td> 
                                                 <td><?php echo number_format($tax,0,',','.'); ?></td> 
                                                 <td><?php echo number_format($profit,0,',','.'); ?></td> 
-                                                <?php if($progress =< 20){ ?>
-                                                    <td><span class="label label-primary"><?php echo $progress; ?>%</td>
-                                                    <?php }else if($progress >= 21){ ?>
-                                                            <td><span class="label label-info"><?php echo $progress; ?>%</td>
-                                                       <?php }else{ ?>
-                                                                <td><span class="label label-danger"><?php echo $progress; ?>%</td>
-                                                        } ?>
 												<td><span class="badge bg-yellow"><?php echo $progress; ?>%</td>
                                         <?php }?>
                                         </tbody>

@@ -32,6 +32,7 @@
 					    </thead>
 					    <tbody>
 					        <tr>
+					        
 								<td><?php echo $customer; ?></td>
 								<td><?php echo $pic; ?></td>
 								<td><?php echo $pos; ?></td>

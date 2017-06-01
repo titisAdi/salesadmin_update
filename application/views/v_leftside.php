@@ -22,7 +22,7 @@
 							<div id="lead" class="collapse ">
 								<ul class="nav">
 									<li><a href="#action" data-toggle="collapse" class="collapsed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><span>&nbsp;Action </span><i class="icon-submenu lnr lnr-chevron-left"></i></a>
-										<div id="action" class="collapse ">
+										<div id="action" class="collapse">
 											<ul class="nav">
 												<li>
 												<a href="<?php echo base_url()."index.php/SalesAdmin/fuform"; ?>" class=""><i class="fa fa-dot-circle-o" aria-hidden="true"></i>&nbsp;Follow Up Form</a>

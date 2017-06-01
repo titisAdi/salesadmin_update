@@ -22,9 +22,14 @@
 		<i class="fa fa-user"></i>
 		<input type="text" placeholder="Username" name="username" required />
 		<i class="fa fa-user"></i>
+		<input type="text" placeholder="Address" name="address" required />
+		<i class="fa fa-globe"></i>
+		<input type="email" placeholder="Email" name="email" required />
+		<i class="fa fa-envelope"></i>
+		<input type="text" placeholder="Phone" name="phone" required />
+		<i class="fa fa-phone"></i>
 		<input type="password" placeholder="Password" name="password" id="pass" required />
 		<i class="fa fa-key"></i>
-		<span id="passstrength"></span>
 		<button>
 			<i class="spinner"></i>
 			<span class="state">Sign Up</span>
@@ -36,58 +41,4 @@
 	<script src="<?php echo base_url()."assets/vendor"?>login/js/index.js"></script>
 	<script src="<?php echo base_url()."assets/vendor"?>prefixfree-gh-pages/prefixfree.min.js"></script>
 </body>
-<script>
-
-$(document).ready(function() {
-
-
-
-    $('#pass').keyup(function(e) {
-
-        var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
-
-        var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
-
-        var enoughRegex = new RegExp("(?=.{6,}).*", "g");
-
-        if (false === enoughRegex.test($(this).val())) {
-
-            $('#passstrength').addClass( "label label-important" );
-
-            $('#passstrength').html('Lemah Sekali');
-
-            
-
-        } else if (strongRegex.test($(this).val())) {            
-
-           
-
-            $('#passstrength').addClass( "label label-success" );
-
-            $('#passstrength').html('Wow!');
-
-        } else if (mediumRegex.test($(this).val())) {
-
-          
-
-            $('#passstrength').addClass( "label label-warning" );
-
-            $('#passstrength').html('Lumayan!');
-
-        } else {
-
-           
-
-            $('#passstrength').addClass( "label label-important" );
-
-            $('#passstrength').html('Lemah!');
-
-        }
-
-        return true;
-
-    });
-});
-
-</script>
 </html>

@@ -16,14 +16,14 @@ class Login extends CI_Controller {
 
 		$cek = $this->salesModel->cek_user($username, $secure);
 		$tes = count($cek);
-		$i = $this->salesModel->authen_user($username);
+		$i = $this->salesModel->authen_user($username); //berapa kali login
 		if($tes > 0){
 			$update = $this->salesModel->wrong_password($username,0) ;
-			$data_login = $this->salesModel->cek_user($username, $secure);
-			$level = $data_login -> level;
+			$level = $cek -> level;
 			$data = array('level'=>level,
 				'username'=> $username);
 			$this->session->set_userdata($data);
+			$_SESSION['username'] = $username;
 
 			if($level == 'admin'){
 				redirect ('SalesAdmin/adminMasuk');
@@ -34,7 +34,6 @@ class Login extends CI_Controller {
 			if ($i[0]['authentication'] < 3) {
 				$update = $this->salesModel->wrong_password($username, $i[0]['authentication']+1);
 				$data['err_message'] = "The username and password you entered did not match our records. Please double-check and try again.". ($i[0]['authentication']+1);
-				$_SESSION['username'] = $username;
 				$this->load->view('v_login',$data);
 			}
 			else{
@@ -57,21 +56,39 @@ class Login extends CI_Controller {
 		$username = $_POST['username'];
 		$namalengkap = $_POST['name'];
 		$password = $_POST['password'];
+		$address=$_POST['address'];
+		$email=$_POST['email'];
+		$phone=$_POST['phone'];
+		$dateofjoin=date("Y-m-d");
+		$uppercase = preg_match('@[A-Z]@', $password);
+		$lowercase = preg_match('@[a-z]@', $password);
+		$number    = preg_match('@[0-9]@', $password);
 		$secure = sha1(md5($password));
-		$tambahUser = array(
+		if(!$uppercase || !$lowercase || !$number || strlen($password) < 8) {
+			$data['err_message'] = "Password must contain uppercase, lowercase, and number"."<br>".
+									"Make Sure it contains minimal 8 characters";
+			$this->load->view('v_signup',$data);						
+		}else{
+			$tambahUser = array(
 			'username' => $username,
 			'namalengkap' => $namalengkap,
 			'password' => $secure,
-			'level' => "sales"
-		);
-		$exist = $this->salesModel->userada($username);
-		$tes = count($exist);
-		if($tes > 0){
-			$data['err_message'] = "Username has already exist";
-			$this->load->view('v_signup', $data);
-		}else{
-			$res = $this->salesModel->TambahUser('tuser',$tambahUser);
-			redirect ('SalesAdmin/salesMasuk');
+			'level' => "sales",
+			'alamat'=>$address,
+			'email'=>$email,
+			'telepon'=>$phone,
+			'dateofjoin'=>$dateofjoin
+			);
+			$exist = $this->salesModel->userada($username);
+			$tes = count($exist);
+			if($tes > 0){
+				$data['err_message'] = "Username has already exist";
+				$this->load->view('v_signup', $data);
+			}else{
+				$res = $this->salesModel->TambahUser('tuser',$tambahUser);
+				$_SESSION['username'] = $username;
+				redirect ('SalesAdmin/salesMasuk');
+			}
 		}
 	}
 	public function profile(){

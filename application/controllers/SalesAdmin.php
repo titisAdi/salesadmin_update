@@ -24,8 +24,7 @@ class SalesAdmin extends CI_Controller {
 			$datatasks = $this->salesModel->tasklist();
 			$this->load->view('v_navbar');
 			$this->load->view('v_leftside');
-			$this->load->view('v_main', array('data'=>$data, 'datatasks'=>$datatasks, 'lastevent' =>$lastevent));
-			
+			$this->load->view('v_main', array('data'=>$data, 'datatasks'=>$datatasks, 'lastevent' =>$lastevent));	
 		}else{
 			redirect('v_login');
 		}
@@ -485,7 +484,6 @@ class SalesAdmin extends CI_Controller {
 			in_array($type, array('docx', 'doc', 'pptx', 'pdf'));
 			is_uploaded_file($_FILES['document']['tmp_name']);
 			move_uploaded_file($_FILES['document']['tmp_name'], $url);
-		
 		$lead = $_POST['lead'];
 		$date = $_POST['fu_date'];
 		$loc = $_POST['loc'];

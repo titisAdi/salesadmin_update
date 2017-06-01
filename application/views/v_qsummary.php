@@ -50,7 +50,6 @@
                                             <td>
                                             <a href="<?php echo base_url()."index.php/SalesAdmin/qreview/".$d['id_rev']; ?>"><i class="fa fa-eye" aria-hidden="true" title="Preview"></i></a> | 
                                             <a href="<?php echo base_url()."index.php/SalesAdmin/qprint/".$d['id_rev']; ?>"><span class="lnr lnr-printer" title="Print"></span></a> | 
-                                            <a href="<?php echo base_url()."index.php/SalesAdmin/qrevision/".$d['id_quotation']?>"> <span class="lnr lnr-pencil" title="Revision"></span></a> | 
                                             <a href="<?php echo base_url()."index.php/SalesAdmin/sendquotation/".$d['id_quotation']?>"><i class="fa fa-share-square" aria-hidden="true" title="Send"></i></td></a>
                                             </td>
                                         <?php } ?>
