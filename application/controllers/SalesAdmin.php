@@ -478,9 +478,20 @@ class SalesAdmin extends CI_Controller {
 			redirect('SalesAdmin/present');
 		}
 	}
-	public function downloadPoc($by){
-		$name = $by.'.pdf';
-		force_download('poc/'.$name,NULL);
+	public function downloadPoc($lead){
+		$data = $this->salesModel->tpoc("where id_lead ='$lead'");
+		$detail = array('document'=>$data[0]['document']);
+		$doc = implode("", $detail);
+		$subs = substr($doc,10);
+		$format = array('docx','doc','ppt','pptx','pdf');
+		if (in_array($subs, $format)){
+			$name = $lead.$format;
+			echo $name;
+			//force_download('followup/'.$name,NULL);
+		}
+		else{
+		  echo "Match not found";
+		}
 	}
 	public function poc(){
 		$data = $this->salesModel->selectPatner();
@@ -489,11 +500,11 @@ class SalesAdmin extends CI_Controller {
 		$this->load->view('v_poc',array('data'=>$data));
 	}
 	public function pro_poc(){
-		$path_file = 'poc/'.$_POST['by'];
+		$path_file = 'poc/'.$_POST['lead'];
 		$type = explode('.', $_FILES['document']['name']);
 		$type = $type[count($type)-1];
 		$url = $path_file.'.'.$type;
-			in_array($type, array('docx', 'doc', 'pptx', 'pdf'));
+			in_array($type, array('docx', 'doc', 'pptx', 'pdf', 'ppt'));
 			is_uploaded_file($_FILES['document']['tmp_name']);
 			move_uploaded_file($_FILES['document']['tmp_name'], $url);
 		$lead = $_POST['lead'];
@@ -503,7 +514,7 @@ class SalesAdmin extends CI_Controller {
 		$comment = $_POST['editor1'];
 		$txtbox = $_POST['txt'];
 		$value = $_POST['value'];
-		$document = $_POST['by'].'.'.$type;
+		$document = $_POST['lead'].'.'.$type;
 		
 		$tambah_followpoc=array(
 			'followup_date'=>$date,
@@ -786,7 +797,8 @@ class SalesAdmin extends CI_Controller {
 			$date = array(
 			'poc_date'=>$time[0]['poc_date'], 'loc'=>$time[0]['loc'],
 			'by'=>$time[0]['by'], 'item'=>$participant[0]['item'],
-			'proven'=>$participant[0]['proven'], 'comment'=>$time[0]['comment']
+			'proven'=>$participant[0]['proven'], 'comment'=>$time[0]['comment'],
+			'id_lead'=>$time[0]['id_lead']
 			);
 			$this->load->view('v_navbar');
 			$this->load->view('v_leftside');
