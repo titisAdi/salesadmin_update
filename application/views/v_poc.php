@@ -69,8 +69,8 @@
 							</div>
 							
 							<div class="form-group">
-                                <label>Respond and Comment</label>
-                                <textarea id="editor1" name="editor1" rows="50" cols="100">
+                                <label>Comment and Respond</label>
+                                <textarea class="form-control" rows="10" cols="80" name="editor1">
 								</textarea>
                             </div>
                				<div>
@@ -125,7 +125,7 @@
 
 	$('#notifications').slideDown('slow').delay(3000).slideUp('slow');
 	$(function () {
-	        CKEDITOR.replace('editor1');
-	        $(".textarea").wysihtml5();
-      	});
+        CKEDITOR.replace('editor1');
+        $(".textarea").wysihtml5();
+      });
 	</script>

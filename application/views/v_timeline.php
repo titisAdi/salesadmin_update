@@ -20,6 +20,7 @@
 				</div>
 				<div class="panel-body">
 					<div class="panel-heading">
+						<div id="notifications"><?php echo $this->session->flashdata('msg'); ?></div> 
 									<h3 class="panel-title">Status : <?php echo $status ?></h3>
 								</div>
 								<div class="panel-body">
@@ -57,3 +58,6 @@
 									</table>
 								</div>
 					</div>
+<script>   
+    $('#notifications').slideDown('slow').delay(3000).slideUp('slow');
+</script>

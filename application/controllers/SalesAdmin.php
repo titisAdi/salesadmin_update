@@ -298,15 +298,30 @@ class SalesAdmin extends CI_Controller {
 		$this->load->view('v_fuform',array('data'=>$data));
 	}
 	public function downloadFU($down){
-		$name = $down.'.pdf';
-		force_download('followup/'.$name,NULL);
+		$data = $this->salesModel->timelinefollowup("where id_lead ='$down'");
+		$hitung = count($data);
+		$detail = array('document'=>$data[0]['document']);
+		$doc = implode("", $detail);
+		$subs = substr($doc,10);
+		$format = array('docx','doc','ppt','pptx','pdf');
+		if (in_array($subs, $format)){
+			force_download('followup/'.$doc,NULL);
+		}
+		else{
+			$this->session->set_flashdata('msg', 
+	        '<div class="alert alert-danger alert-dismissible" role="alert">
+	          	<i class="fa fa-times-circle"></i>
+		        Document not valid
+	        </div>'); 
+			redirect('SalesAdmin/timeline');
+		}
 	}
 	public function followup(){
 		$path_file = 'followup/'.$_POST['pic'];
 		$type = explode('.', $_FILES['document']['name']);
 		$type = $type[count($type)-1];
 		$loc = $path_file.'.'.$type;
-			in_array($type, array('docx', 'doc', 'pptx', 'pdf'));
+			in_array($type, array('docx', 'doc', 'pptx', 'pdf','ppt'));
 			is_uploaded_file($_FILES['document']['tmp_name']);
 			move_uploaded_file($_FILES['document']['tmp_name'], $loc);
 		
@@ -400,8 +415,24 @@ class SalesAdmin extends CI_Controller {
 		}		
 	}
 	public function downloadPresent($by){
-		$name = $by.'.pptx';
-		force_download('presentation/'.$name,NULL);
+		$data = $this->salesModel->presentDate("where id_lead ='$by'");
+		$hitung = count($data);
+		$detail = array('document'=>$data[0]['document']);
+		$doc = implode("", $detail);
+		$subs = substr($doc,10);
+		echo $subs;
+		$format = array('docx','doc','ppt','pptx','pdf');
+		if (in_array($subs, $format)){
+			force_download('presentation/'.$doc,NULL);
+		}
+		else{
+			$this->session->set_flashdata('msg', 
+	        '<div class="alert alert-danger alert-dismissible" role="alert">
+	          	<i class="fa fa-times-circle"></i>
+		        Document not valid
+	        </div>'); 
+			redirect('SalesAdmin/pocreport');
+		}
 	}
 	public function present(){
 		$data = $this->salesModel->selectPatner();
@@ -410,11 +441,11 @@ class SalesAdmin extends CI_Controller {
 		$this->load->view('v_present',array('data'=>$data));
 	}
 	public function pro_presentation(){
-		$path_file = 'presentation/'.$_POST['by'];
+		$path_file = 'presentation/'.$_POST['lead'];
 		$type = explode('.', $_FILES['document']['name']);
 		$type = $type[count($type)-1];
 		$url = $path_file.'.'.$type;
-			in_array($type, array('docx', 'doc', 'pptx', 'pdf'));
+			in_array($type, array('docx', 'doc', 'pptx', 'pdf','ppt'));
 			is_uploaded_file($_FILES['document']['tmp_name']);
 			move_uploaded_file($_FILES['document']['tmp_name'], $url);
 		
@@ -425,7 +456,7 @@ class SalesAdmin extends CI_Controller {
 		$comment = $_POST['editor1'];
 		$txtbox = $_POST['txt'];
 		$value = $_POST['txt2'];
-		$document = $_POST['by'].'.'.$type;
+		$document = $_POST['lead'].'.'.$type;
 		
 		$tambah_tfollowpresent=array(
 			'followup_date'=>$date,
@@ -480,17 +511,21 @@ class SalesAdmin extends CI_Controller {
 	}
 	public function downloadPoc($lead){
 		$data = $this->salesModel->tpoc("where id_lead ='$lead'");
+		$hitung = count($data);
 		$detail = array('document'=>$data[0]['document']);
 		$doc = implode("", $detail);
 		$subs = substr($doc,10);
 		$format = array('docx','doc','ppt','pptx','pdf');
 		if (in_array($subs, $format)){
-			$name = $lead.$format;
-			echo $name;
-			//force_download('followup/'.$name,NULL);
+			force_download('poc/'.$doc,NULL);
 		}
 		else{
-		  echo "Match not found";
+			$this->session->set_flashdata('msg', 
+	        '<div class="alert alert-danger alert-dismissible" role="alert">
+	          	<i class="fa fa-times-circle"></i>
+		        Document not valid
+	        </div>'); 
+			redirect('SalesAdmin/pocreport');
 		}
 	}
 	public function poc(){
@@ -766,7 +801,7 @@ class SalesAdmin extends CI_Controller {
 				$date = array(
 				'pre_date'=>$time[0]['pre_date'],'location'=>$time[0]['location'],
 				'by'=>$time[0]['by'],'name'=>$participant[0]['name'], 'pos'=>$participant[0]['pos'],
-				'comment'=>$time[0]['comment']
+				'comment'=>$time[0]['comment'],'id_lead'=>$time[0]['id_lead']
 			);
 			$this->load->view('v_navbar');
 			$this->load->view('v_leftside');

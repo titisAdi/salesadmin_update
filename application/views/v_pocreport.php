@@ -21,6 +21,7 @@
 				<div class="panel-body">
 							<div class="panel">
 								<div class="panel-heading">
+								<div id="notifications"><?php echo $this->session->flashdata('msg'); ?></div> 
 									<h3 class="panel-title"># Date : <?php echo $poc_date?></h3>
 									<div class="right">
 										<button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
@@ -55,5 +56,8 @@
 								</div>
 
 							</div>
+<script>   
+    $('#notifications').slideDown('slow').delay(3000).slideUp('slow');
+</script>
 
 	

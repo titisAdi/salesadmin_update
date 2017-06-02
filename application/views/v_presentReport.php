@@ -51,7 +51,7 @@
 									<br>
 							  		<b>Result :</b> <?php echo $comment ?>
 							  		<br>
-							  		<b><a href="<?php echo base_url()."index.php/SalesAdmin/downloadPresent/".$by; ?>"><i class="fa fa-download" aria-hidden="true"></i> Download</a></b>
+							  		<b><a href="<?php echo base_url()."index.php/SalesAdmin/downloadPresent/".$id_lead; ?>"><i class="fa fa-download" aria-hidden="true"></i> Download</a></b>
 								</div>
 
 							</div>
